@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dame Luxe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="maintenance-screen" class="screen hidden">
+        <h1 style="color: #ec4899;">🚧 MAINTENANCE 🚧</h1>
+        <p style="text-align: center; padding: 20px;">Le serveur est actuellement indisponible ou en mise à jour. Réessayez dans un instant.</p>
+        <button onclick="location.reload()" class="btn-luxe">ACTUALISER</button>
+    </div>
+
+    <div id="app">
+        <section id="screen_menu" class="screen">
+            <h1 class="main-title">DAME LUXE</h1>
+            <div class="niche-container">
+                <div class="niche card-gold" onclick="handleChampionshipClick()">
+                    <h2>🏆 CHAMPIONNAT</h2>
+                    <p>Compétition Publique</p>
+                </div>
+                <div class="niche card-blue" onclick="showTrainingForm()">
+                    <h2>🧠 ENTRAÎNEMENT</h2>
+                    <p>IA Niveau Expert</p>
+                </div>
+            </div>
+            <p class="pwa-hint">💡 Installez l'app sur votre écran d'accueil pour jouer.</p>
+        </section>
+
+        <section id="screen_form" class="screen hidden">
+            <div class="glass-card">
+                <h2>VOTRE NOM</h2>
+                <input type="text" id="username" placeholder="Prénom Nom" class="input-luxe">
+                <button onclick="startTraining()" class="btn-luxe">LANCER LE DÉFI</button>
+                <button onclick="showMenu()" class="btn-back">RETOUR</button>
+            </div>
+        </section>
+
+        <section id="screen_game" class="screen hidden">
+            <div class="game-info">
+                <span id="player_display">Joueur</span> <span class="vs">VS</span> <span class="ia-tag">IA EXPERT</span>
+            </div>
+            <div id="board" class="board"></div>
+            <button onclick="exitGame()" class="btn-exit">QUITTER</button>
+        </section>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
